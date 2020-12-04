@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--This XSD (W3C Schema) has been written by ABACUS AbaConnect-->
+<!--Created at: Tue Apr 14 10:53:29 CEST 2020-->
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' targetNamespace='http://www.abacus.ch/abaconnect/2009.00/debi/DocumentDossierAccountsReceivableTypes' xmlns:documentdossieraccountsreceivabletypes='http://www.abacus.ch/abaconnect/2009.00/debi/DocumentDossierAccountsReceivableTypes' xmlns:act='http://www.abacus.ch/abaconnect/2007.10/core/AbaConnectTypes' xmlns:xmime='http://www.w3.org/2005/05/xmlmime' elementFormDefault='qualified' attributeFormDefault='unqualified'>
+  <xs:import namespace='http://www.abacus.ch/abaconnect/2007.10/core/AbaConnectTypes' schemaLocation='AbaConnectTypes.xsd'/>
+  <xs:import namespace='http://www.w3.org/2005/05/xmlmime' schemaLocation='xmlmime.xsd'/>
+  <xs:element name='DocumentDossierAccountsReceivableAbaDefault' type='documentdossieraccountsreceivabletypes:DocumentDossierAccountsReceivableAbaDefaultType'>
+    <xs:annotation>
+      <xs:documentation>DocumentDossierAccountsReceivable-Doc. dossier: Dossier</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='DocumentDossierAccountsReceivableAbaDefaultType'>
+    <xs:sequence>
+      <xs:element name='DocumentDossier' minOccurs='0' type='documentdossieraccountsreceivabletypes:DocumentDossierComType'/>
+      <xs:element name='AdditionalData' type='act:ObjectDataType' minOccurs='0'/>
+      <xs:element name='Attachment' type='documentdossieraccountsreceivabletypes:AttachmentType' minOccurs='0'/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='DocumentDossierComType'>
+    <xs:sequence>
+      <xs:element name='Number' type='documentdossieraccountsreceivabletypes:NumberSimType'>
+        <xs:annotation>
+          <xs:documentation>Doc. number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='Dossier' minOccurs='0' maxOccurs='unbounded' type='documentdossieraccountsreceivabletypes:DossierComType'/>
+    </xs:sequence>
+    <xs:attribute name='mode' use='optional' type='documentdossieraccountsreceivabletypes:ModeSimType'/>
+  </xs:complexType>
+  <xs:simpleType name='ModeSimType'>
+    <xs:restriction base='xs:string'>
+      <xs:pattern value='SAVE'/>
+      <xs:pattern value='INSERT'/>
+      <xs:pattern value='UPDATE'/>
+      <xs:pattern value='READ'/>
+      <xs:pattern value='DELETE'/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name='NumberSimType'>
+    <xs:restriction base='xs:long'>
+      <xs:totalDigits value='10'/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name='DossierComType'>
+    <xs:sequence>
+      <xs:element name='DossierName' type='documentdossieraccountsreceivabletypes:DossierNameSimType'>
+        <xs:annotation>
+          <xs:documentation>Name of the dossier</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='DocumentName' minOccurs='0' type='documentdossieraccountsreceivabletypes:DocumentNameSimType'>
+        <xs:annotation>
+          <xs:documentation>Name of the document</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='DocumentId' minOccurs='0' type='documentdossieraccountsreceivabletypes:DocumentIdSimType'>
+        <xs:annotation>
+          <xs:documentation>Unique number of the document</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='Filename' minOccurs='0' type='documentdossieraccountsreceivabletypes:FilenameSimType'>
+        <xs:annotation>
+          <xs:documentation>File name for this transaction</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='OriginalFilename' minOccurs='0' type='documentdossieraccountsreceivabletypes:OriginalFilenameSimType'>
+        <xs:annotation>
+          <xs:documentation>Original file name</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name='mode' use='optional' type='documentdossieraccountsreceivabletypes:ModeSimType'/>
+  </xs:complexType>
+  <xs:simpleType name='DossierNameSimType'>
+    <xs:restriction base='xs:string'>
+      <xs:maxLength value='50'/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name='DocumentNameSimType'>
+    <xs:restriction base='xs:string'>
+      <xs:maxLength value='200'/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name='DocumentIdSimType'>
+    <xs:restriction base='xs:long'>
+      <xs:totalDigits value='10'/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name='FilenameSimType'>
+    <xs:restriction base='xs:string'/>
+  </xs:simpleType>
+  <xs:simpleType name='OriginalFilenameSimType'>
+    <xs:restriction base='xs:string'/>
+  </xs:simpleType>
+  <xs:complexType name='AttachmentType'>
+    <xs:sequence>
+      <xs:element name='BinaryData' type='documentdossieraccountsreceivabletypes:BinaryDataType' maxOccurs='unbounded'/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='BinaryDataType'>
+    <xs:sequence>
+      <xs:element name='Name' type='xs:string'/>
+      <xs:element name='BinData' type='xmime:base64Binary'/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

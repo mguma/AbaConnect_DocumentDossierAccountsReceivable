@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--This XSD (W3C Schema) has been written by ABACUS AbaConnect-->
+<!--Created at: Tue Apr 14 10:53:29 CEST 2020-->
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' targetNamespace='http://www.abacus.ch/abaconnect/2009.00/debi/DocumentDossierAccountsReceivable' xmlns:documentdossieraccountsreceivable='http://www.abacus.ch/abaconnect/2009.00/debi/DocumentDossierAccountsReceivable' xmlns:documentdossieraccountsreceivabletypes='http://www.abacus.ch/abaconnect/2009.00/debi/DocumentDossierAccountsReceivableTypes' xmlns:act='http://www.abacus.ch/abaconnect/2007.10/core/AbaConnectTypes' elementFormDefault='qualified' attributeFormDefault='unqualified'>
+  <xs:import namespace='http://www.abacus.ch/abaconnect/2007.10/core/AbaConnectTypes' schemaLocation='AbaConnectTypes.xsd'/>
+  <xs:import namespace='http://www.abacus.ch/abaconnect/2009.00/debi/DocumentDossierAccountsReceivableTypes' schemaLocation='DocumentDossierAccountsReceivableTypes.xsd'/>
+  <xs:element name='DeleteRequest' type='documentdossieraccountsreceivable:RequestType'>
+    <xs:annotation>
+      <xs:documentation>DocumentDossierAccountsReceivable-Doc. dossier: Dossier</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name='DeleteResponse' type='documentdossieraccountsreceivable:ResponseType'>
+    <xs:annotation>
+      <xs:documentation>DocumentDossierAccountsReceivable-Doc. dossier: Dossier</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name='InsertRequest' type='documentdossieraccountsreceivable:RequestType'>
+    <xs:annotation>
+      <xs:documentation>DocumentDossierAccountsReceivable-Doc. dossier: Dossier</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name='InsertResponse' type='documentdossieraccountsreceivable:ResponseType'>
+    <xs:annotation>
+      <xs:documentation>DocumentDossierAccountsReceivable-Doc. dossier: Dossier</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name='UpdateRequest' type='documentdossieraccountsreceivable:RequestType'>
+    <xs:annotation>
+      <xs:documentation>DocumentDossierAccountsReceivable-Doc. dossier: Dossier</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name='UpdateResponse' type='documentdossieraccountsreceivable:ResponseType'>
+    <xs:annotation>
+      <xs:documentation>DocumentDossierAccountsReceivable-Doc. dossier: Dossier</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name='FindRequest' type='documentdossieraccountsreceivable:RequestType'>
+    <xs:annotation>
+      <xs:documentation>DocumentDossierAccountsReceivable-Doc. dossier: Dossier</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name='FindResponse' type='documentdossieraccountsreceivable:ResponseType'>
+    <xs:annotation>
+      <xs:documentation>DocumentDossierAccountsReceivable-Doc. dossier: Dossier</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name='IsFinishedRequest' type='act:RequestFinishedType'>
+    <xs:annotation>
+      <xs:documentation>DocumentDossierAccountsReceivable-Doc. dossier: Dossier</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name='IsFinishedResponse' type='documentdossieraccountsreceivable:ResponseType'>
+    <xs:annotation>
+      <xs:documentation>DocumentDossierAccountsReceivable-Doc. dossier: Dossier</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='RequestType'>
+    <xs:sequence>
+      <xs:element name='AbaConnectParam' type='act:RequestParameterType' minOccurs='1' maxOccurs='1'/>
+      <xs:element name='ApplicationParam' type='act:ApplicationParameterType' minOccurs='0' maxOccurs='1'/>
+      <xs:element name='FindParam' type='act:FindType' minOccurs='0' maxOccurs='1'/>
+      <xs:element name='Data' type='documentdossieraccountsreceivabletypes:DocumentDossierAccountsReceivableAbaDefaultType' minOccurs='0'/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='ResponseType'>
+    <xs:sequence>
+      <xs:element name='ResponseMessage' type='act:ACResponseType'/>
+      <xs:element name='DataContainer' type='documentdossieraccountsreceivable:DataContainerType' minOccurs='0'/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='DataContainerType'>
+    <xs:sequence>
+      <xs:element name='Data' type='documentdossieraccountsreceivabletypes:DocumentDossierAccountsReceivableAbaDefaultType' minOccurs='0' maxOccurs='unbounded'/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

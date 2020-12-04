@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EB0CF5D1-CC01-4DC0-B4E2-2EB7361FD878}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Advice.MilaTest</RootNamespace>
+    <AssemblyName>Advice.MilaTest</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config.cs" />
+    <Compile Include="Connected Services\AbaConnect.Debtors\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\AbaConnect\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DebtorDocumentServiceOrchestrator.cs" />
+    <Compile Include="AddressServiceOrchestrator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Connected Services\AbaConnect.Debtors\AbaConnectTypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AbaConnect.Debtors\Advice.MilaTest.AbaConnect.Debtors.CheckInteroperabilityResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect.Debtors\Advice.MilaTest.AbaConnect.Debtors.deleteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect.Debtors\Advice.MilaTest.AbaConnect.Debtors.findResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect.Debtors\Advice.MilaTest.AbaConnect.Debtors.insertResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect.Debtors\Advice.MilaTest.AbaConnect.Debtors.interoperabilityTestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect.Debtors\Advice.MilaTest.AbaConnect.Debtors.isAliveResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect.Debtors\Advice.MilaTest.AbaConnect.Debtors.isFinishedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect.Debtors\Advice.MilaTest.AbaConnect.Debtors.IsSessionAliveResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect.Debtors\Advice.MilaTest.AbaConnect.Debtors.LoginLogoutResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect.Debtors\Advice.MilaTest.AbaConnect.Debtors.loginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect.Debtors\Advice.MilaTest.AbaConnect.Debtors.logoutResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect.Debtors\Advice.MilaTest.AbaConnect.Debtors.pingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect.Debtors\Advice.MilaTest.AbaConnect.Debtors.PingType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect.Debtors\Advice.MilaTest.AbaConnect.Debtors.ResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect.Debtors\Advice.MilaTest.AbaConnect.Debtors.updateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect.Debtors\DocumentDossierAccountsReceivable.wsdl" />
+    <None Include="Connected Services\AbaConnect.Debtors\DocumentDossierAccountsReceivable.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AbaConnect.Debtors\DocumentDossierAccountsReceivableTypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AbaConnect.Debtors\xmlmime.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AbaConnect\AbaConnectTypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AbaConnect\address.wsdl" />
+    <None Include="Connected Services\AbaConnect\address.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AbaConnect\addressTypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AbaConnect\Advice.MilaTest.AbaConnect.CheckInteroperabilityResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect\Advice.MilaTest.AbaConnect.defaultValuesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect\Advice.MilaTest.AbaConnect.deleteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect\Advice.MilaTest.AbaConnect.findResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect\Advice.MilaTest.AbaConnect.insertResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect\Advice.MilaTest.AbaConnect.interoperabilityTestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect\Advice.MilaTest.AbaConnect.isAliveResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect\Advice.MilaTest.AbaConnect.isFinishedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect\Advice.MilaTest.AbaConnect.IsSessionAliveResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect\Advice.MilaTest.AbaConnect.LoginLogoutResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect\Advice.MilaTest.AbaConnect.loginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect\Advice.MilaTest.AbaConnect.logoutResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect\Advice.MilaTest.AbaConnect.pingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect\Advice.MilaTest.AbaConnect.PingType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect\Advice.MilaTest.AbaConnect.ResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect\Advice.MilaTest.AbaConnect.saveResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect\Advice.MilaTest.AbaConnect.updateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AbaConnect\xmlmime.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="wsdl\address_2018_00\AbaConnectTypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="wsdl\address_2018_00\address.wsdl" />
+    <None Include="wsdl\address_2018_00\address.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="wsdl\address_2018_00\addressTypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="wsdl\address_2018_00\xmlmime.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="wsdl\DocumentDossierAccountsReceivable_2009_00\AbaConnectTypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="wsdl\DocumentDossierAccountsReceivable_2009_00\DocumentDossierAccountsReceivable.wsdl" />
+    <None Include="wsdl\DocumentDossierAccountsReceivable_2009_00\DocumentDossierAccountsReceivable.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="wsdl\DocumentDossierAccountsReceivable_2009_00\DocumentDossierAccountsReceivableTypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="wsdl\DocumentDossierAccountsReceivable_2009_00\xmlmime.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\AbaConnect.Debtors\" />
+    <WCFMetadataStorage Include="Connected Services\AbaConnect\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AbaConnect\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AbaConnect\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AbaConnect\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AbaConnect.Debtors\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AbaConnect.Debtors\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AbaConnect.Debtors\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

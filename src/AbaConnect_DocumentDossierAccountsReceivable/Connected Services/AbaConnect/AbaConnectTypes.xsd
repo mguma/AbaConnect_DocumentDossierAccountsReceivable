@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.abacus.ch/abaconnect/2007.10/core/AbaConnectTypes" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.abacus.ch/abaconnect/2007.10/core/AbaConnectTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:documentation>XSD with Basic Types for all AbaConnect Webservices</xs:documentation>
+    <xs:documentation>Date 23.02.2006 / PHE</xs:documentation>
+  </xs:annotation>
+  <xs:element name="PingRequest" type="tns:PingType">
+    <xs:annotation>
+      <xs:documentation>Simple Operation ti check the Connection</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="PingResponse" type="tns:PingType">
+    <xs:annotation>
+      <xs:documentation>Simple Operation ti check the Connection</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="IsSessionAlive" type="tns:IsSessionAliveType">
+    <xs:annotation>
+      <xs:documentation>Simple Call to check if the Session is alive or not, this call sets a new TimeStamp, so the Session will keep alive</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="IsSessionAliveResponse" type="tns:IsSessionAliveResponseType">
+    <xs:annotation>
+      <xs:documentation>Response for the isSessionAlive call. True = session is alive, false otherwise</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="AbaConnectFault" type="tns:AbaConnectFaultType">
+    <xs:annotation>
+      <xs:documentation>Description of the Fault/Exception</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Login" type="tns:LoginType">
+    <xs:annotation>
+      <xs:documentation>Description of the Login</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Logout" type="tns:LoginType">
+    <xs:annotation>
+      <xs:documentation>Description of the Login</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="LoginResponse" type="tns:LoginLogoutResponseType">
+    <xs:annotation>
+      <xs:documentation>Login/Logout Response Object that holds the "ABACUS User Session" Key</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="LogoutResponse" type="tns:LoginLogoutResponseType">
+    <xs:annotation>
+      <xs:documentation>Login/Logout Response Object that holds the "ABACUS User Session" Key</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="CheckInteroperability" type="tns:CheckInteroperabilityType" />
+  <xs:element name="CheckInteroperabilityResponse" type="tns:CheckInteroperabilityResponseType" />
+  <xs:complexType name="IsSessionAliveType">
+    <xs:sequence>
+      <xs:element name="LoginToken" type="tns:LoginTokenType">
+        <xs:annotation>
+          <xs:documentation>LoginToken to check if Session active.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="IsSessionAliveResponseType">
+    <xs:sequence>
+      <xs:element name="IsAlive" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>LoginToken to check if Session active.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AbaConnectFaultType">
+    <xs:annotation>
+      <xs:documentation>Fault Object (an Exception in Java)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Code" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Message Code</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Message" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Message as Text</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Cause" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Cause when available</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PingType">
+    <xs:sequence>
+      <xs:element name="Echo" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Message to send to the server, The result ist the same and contains a message from the server and the sent message</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LoginLogoutResponseType">
+    <xs:annotation>
+      <xs:documentation>Login Object to AbaConnect that holds all needed Login Parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="LoginToken" type="tns:LoginTokenType">
+        <xs:annotation>
+          <xs:documentation>Key to log in further operations</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Code" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Response Code for Operation</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Message" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Message for Operation</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LoginType">
+    <xs:annotation>
+      <xs:documentation>Login Object to AbaConnect that holds all needed Login Parameters</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element name="LoginToken" type="tns:LoginTokenType">
+        <xs:annotation>
+          <xs:documentation>Login with the LoginToken given by the UserLogin</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="UserLogin" type="tns:UserLoginType">
+        <xs:annotation>
+          <xs:documentation>Login with User and Password</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="UserLoginType">
+    <xs:sequence>
+      <xs:element name="UserName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Username</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Password" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Password</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Mandant" type="tns:MandantType">
+        <xs:annotation>
+          <xs:documentation>ABACUS Mandant number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Parameters" type="tns:ObjectDataType">
+        <xs:annotation>
+          <xs:documentation>Additional AbaConnect Login Parameters (available from ABACUS V2014)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="MandantType">
+    <xs:restriction base="xs:int">
+      <xs:totalDigits value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="FindType">
+    <xs:annotation>
+      <xs:documentation>Object that describes the find operations</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Index" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Index for Database Access, if no index is defined, the default value of the AbaConnect Interface will be used.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Operation" type="tns:OperationType">
+        <xs:annotation>
+          <xs:documentation>Database Operation, like FindEqual, FindNext etc.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="KeyFields" type="tns:ObjectDataType">
+        <xs:annotation>
+          <xs:documentation>Element that holds all fields.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Bookmark" type="tns:BookmarkType">
+        <xs:annotation>
+          <xs:documentation>Last DB Location, needed for findNext, findPrevious etc.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="OperationType">
+    <xs:restriction base="xs:NMTOKENS">
+      <xs:enumeration value="FIRST" />
+      <xs:enumeration value="PRIOR" />
+      <xs:enumeration value="NEXT" />
+      <xs:enumeration value="LAST" />
+      <xs:enumeration value="EQUAL" />
+      <xs:enumeration value="GREATER" />
+      <xs:enumeration value="LESS" />
+      <xs:enumeration value="GREATER_EQUAL" />
+      <xs:enumeration value="LESS_EQUAL" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ACResponseType">
+    <xs:annotation>
+      <xs:documentation>Response Object for the Default AbaConnect Response Message</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="IsFinished" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Is the operation finished (true, not finished = false)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="RequestID" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The Request-ID that identifies the request uniquly. This is needed to pool until the request is finished.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ApplicationResult" type="tns:ApplicationParameterType">
+        <xs:annotation>
+          <xs:documentation>Data that is returned from the application. Could be a new key fields etc.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Bookmark" type="tns:BookmarkType">
+        <xs:annotation>
+          <xs:documentation>Last DB Location, needed for findNext, findPrevious etc.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Messages" type="tns:MessagesType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MessagesType">
+    <xs:sequence minOccurs="0">
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Message" type="tns:MessageType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RequestFinishedType">
+    <xs:annotation>
+      <xs:documentation>Request Object for deferred state</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="RequestID" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The Request-ID that identifies the last Request. This is for "polling" if the Operation is not already finisehd</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ApplicationParameterType">
+    <xs:annotation>
+      <xs:documentation>Parameters for the Application, like Employee Number, Timeline etc</xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="0">
+      <xs:element minOccurs="0" name="Parameters" type="tns:ObjectDataType" />
+      <xs:element minOccurs="0" name="FieldMaps" type="tns:FieldMapsType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MessageType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="xs:long">
+        <xs:annotation>
+          <xs:documentation>Returncode of the operation</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Text" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The Message as Text, when someting went wrong</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Level" type="tns:LevelType">
+        <xs:annotation>
+          <xs:documentation>Level of response answer</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FieldMapsType">
+    <xs:sequence minOccurs="0">
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FieldMap" type="tns:FieldMapType">
+        <xs:annotation>
+          <xs:documentation>Fields to Include or not in the Response could be set by the Value true/false. Name Attribute is the ElementName/FieldName.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FieldMapType">
+    <xs:simpleContent>
+      <xs:extension base="xs:boolean">
+        <xs:attribute name="Name" type="xs:string" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="RequestParameterType">
+    <xs:annotation>
+      <xs:documentation>Parameters for AbaConnect Settings</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Login" type="tns:LoginType">
+        <xs:annotation>
+          <xs:documentation>Login Key that is returned by the Login Operation</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Revision" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>Revision that the client understands of the requestet service and mapping</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Level" type="tns:LevelType">
+        <xs:annotation>
+          <xs:documentation>Level of the response messages</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Additional" type="tns:ObjectDataType">
+        <xs:annotation>
+          <xs:documentation>Additional AbaConnect Parameters</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CheckInteroperabilityType">
+    <xs:annotation>
+      <xs:documentation>Interop Request</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="UmlautString" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>String value with the Value: ÄËÖÜÉÓÚÀÈÒÙÂÊÔÛ</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FirstOperand" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>Firstoperand the second Operand will subtracted from the first.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SecondOperand" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>Second Operand, is used to subtract and add with Operand 1 on the Server</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SystemDateTime" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>DateTime</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CheckInteroperabilityResponseType">
+    <xs:annotation>
+      <xs:documentation>Interop Response</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="UmlautString" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Result should be äëöüáéóúàèòùâêôû, the request made to lower case.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AdditionResult" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>Request First Operand added with the Second Operand.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SubtractionResult" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>First Operand subtracted with the Second Operand from the Request</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SystemDateTime" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Sever DateTIme</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ObjectDataType">
+    <xs:annotation>
+      <xs:documentation>Parameters for the Application, like Employee Number, Timeline etc</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IntData" type="tns:IntDataType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LongData" type="tns:LongDataType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StringData" type="tns:StringDataType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DateData" type="tns:DateDataType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DateTimeData" type="tns:DateTimeDataType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BooleanData" type="tns:BooleanDataType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DecimalData" type="tns:DecimalDataType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="IntDataType">
+    <xs:simpleContent>
+      <xs:extension base="xs:int">
+        <xs:attribute name="Name" type="xs:string" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="LongDataType">
+    <xs:simpleContent>
+      <xs:extension base="xs:long">
+        <xs:attribute name="Name" type="xs:string" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="StringDataType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Name" type="xs:string" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="DateDataType">
+    <xs:simpleContent>
+      <xs:extension base="xs:date">
+        <xs:attribute name="Name" type="xs:string" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="DateTimeDataType">
+    <xs:simpleContent>
+      <xs:extension base="xs:dateTime">
+        <xs:attribute name="Name" type="xs:string" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="BooleanDataType">
+    <xs:simpleContent>
+      <xs:extension base="xs:boolean">
+        <xs:attribute name="Name" type="xs:string" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="DecimalDataType">
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attribute name="Name" type="xs:string" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="LoginTokenType">
+    <xs:annotation>
+      <xs:documentation>Type for the ABAUCS Login Ticket</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="BookmarkType">
+    <xs:annotation>
+      <xs:documentation>Bookmark, the last DB Record Key</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="LevelType">
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="Information" />
+      <xs:enumeration value="Warning" />
+      <xs:enumeration value="Error" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

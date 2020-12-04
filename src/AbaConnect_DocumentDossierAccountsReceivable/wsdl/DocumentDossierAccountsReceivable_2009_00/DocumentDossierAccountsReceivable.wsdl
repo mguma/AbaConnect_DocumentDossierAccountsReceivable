@@ -1,0 +1,254 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--WSDL has been written by ABACUS AbaConnect-->
+<wsdl:definitions name='DocumentDossierAccountsReceivable' targetNamespace='http://www.abacus.ch/abaconnect/debi/DocumentDossierAccountsReceivable' xmlns:tns='http://www.abacus.ch/abaconnect/debi/DocumentDossierAccountsReceivable' xmlns:act='http://www.abacus.ch/abaconnect/2007.10/core/AbaConnectTypes' xmlns:documentdossieraccountsreceivabletypes='http://www.abacus.ch/abaconnect/2009.00/debi/DocumentDossierAccountsReceivableTypes' xmlns:documentdossieraccountsreceivable='http://www.abacus.ch/abaconnect/2009.00/debi/DocumentDossierAccountsReceivable' xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/'>
+  <wsdl:types>
+    <xs:schema>
+      <xs:import namespace='http://www.abacus.ch/abaconnect/2009.00/debi/DocumentDossierAccountsReceivable' schemaLocation='DocumentDossierAccountsReceivable.xsd'/>
+      <xs:import namespace='http://www.abacus.ch/abaconnect/2009.00/debi/DocumentDossierAccountsReceivableTypes' schemaLocation='DocumentDossierAccountsReceivableTypes.xsd'/>
+      <xs:import namespace='http://www.abacus.ch/abaconnect/2007.10/core/AbaConnectTypes' schemaLocation='AbaConnectTypes.xsd'/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name='DeleteRequest'>
+    <wsdl:part name='request' element='documentdossieraccountsreceivable:DeleteRequest'/>
+  </wsdl:message>
+  <wsdl:message name='DeleteResponse'>
+    <wsdl:part name='response' element='documentdossieraccountsreceivable:DeleteResponse'/>
+  </wsdl:message>
+  <wsdl:message name='InsertRequest'>
+    <wsdl:part name='request' element='documentdossieraccountsreceivable:InsertRequest'/>
+  </wsdl:message>
+  <wsdl:message name='InsertResponse'>
+    <wsdl:part name='response' element='documentdossieraccountsreceivable:InsertResponse'/>
+  </wsdl:message>
+  <wsdl:message name='UpdateRequest'>
+    <wsdl:part name='request' element='documentdossieraccountsreceivable:UpdateRequest'/>
+  </wsdl:message>
+  <wsdl:message name='UpdateResponse'>
+    <wsdl:part name='response' element='documentdossieraccountsreceivable:UpdateResponse'/>
+  </wsdl:message>
+  <wsdl:message name='FindRequest'>
+    <wsdl:part name='request' element='documentdossieraccountsreceivable:FindRequest'/>
+  </wsdl:message>
+  <wsdl:message name='FindResponse'>
+    <wsdl:part name='response' element='documentdossieraccountsreceivable:FindResponse'/>
+  </wsdl:message>
+  <wsdl:message name='LoginResponse'>
+    <wsdl:part name='loginResponse' element='act:LoginResponse'/>
+  </wsdl:message>
+  <wsdl:message name='LogoutResponse'>
+    <wsdl:part name='logoutResponse' element='act:LogoutResponse'/>
+  </wsdl:message>
+  <wsdl:message name='AbaConnectFault'>
+    <wsdl:part name='exception' element='act:AbaConnectFault'/>
+  </wsdl:message>
+  <wsdl:message name='PingRequest'>
+    <wsdl:part name='pingRequest' element='act:PingRequest'/>
+  </wsdl:message>
+  <wsdl:message name='PingResponse'>
+    <wsdl:part name='pingResponse' element='act:PingResponse'/>
+  </wsdl:message>
+  <wsdl:message name='CheckInteroperability'>
+    <wsdl:part name='checkInteroperability' element='act:CheckInteroperability'/>
+  </wsdl:message>
+  <wsdl:message name='CheckInteroperabilityResponse'>
+    <wsdl:part name='checkInteroperabilityResponse' element='act:CheckInteroperabilityResponse'/>
+  </wsdl:message>
+  <wsdl:message name='IsSessionAlive'>
+    <wsdl:part name='isSessionAlive' element='act:IsSessionAlive'/>
+  </wsdl:message>
+  <wsdl:message name='IsSessionAliveResponse'>
+    <wsdl:part name='isSessionAliveResponse' element='act:IsSessionAliveResponse'/>
+  </wsdl:message>
+  <wsdl:message name='Login'>
+    <wsdl:part name='login' element='act:Login'/>
+  </wsdl:message>
+  <wsdl:message name='Logout'>
+    <wsdl:part name='logout' element='act:Logout'/>
+  </wsdl:message>
+  <wsdl:message name='IsFinished'>
+    <wsdl:part name='isFinished' element='documentdossieraccountsreceivable:IsFinishedRequest'/>
+  </wsdl:message>
+  <wsdl:message name='IsFinishedResponse'>
+    <wsdl:part name='isFinishedResponse' element='documentdossieraccountsreceivable:IsFinishedResponse'/>
+  </wsdl:message>
+  <wsdl:portType name='DocumentDossierAccountsReceivablePort'>
+    <wsdl:operation name='login'>
+      <wsdl:input message='tns:Login'/>
+      <wsdl:output message='tns:LoginResponse'/>
+      <wsdl:fault name='AbaConnectFault' message='tns:AbaConnectFault'/>
+    </wsdl:operation>
+    <wsdl:operation name='logout'>
+      <wsdl:input message='tns:Logout'/>
+      <wsdl:output message='tns:LogoutResponse'/>
+      <wsdl:fault name='AbaConnectFault' message='tns:AbaConnectFault'/>
+    </wsdl:operation>
+    <wsdl:operation name='ping'>
+      <wsdl:input message='tns:PingRequest'/>
+      <wsdl:output message='tns:PingResponse'/>
+      <wsdl:fault name='AbaConnectFault' message='tns:AbaConnectFault'/>
+    </wsdl:operation>
+    <wsdl:operation name='isFinished'>
+      <wsdl:input message='tns:IsFinished'/>
+      <wsdl:output message='tns:IsFinishedResponse'/>
+      <wsdl:fault name='AbaConnectFault' message='tns:AbaConnectFault'/>
+    </wsdl:operation>
+    <wsdl:operation name='interoperabilityTest'>
+      <wsdl:input message='tns:CheckInteroperability'/>
+      <wsdl:output message='tns:CheckInteroperabilityResponse'/>
+      <wsdl:fault name='AbaConnectFault' message='tns:AbaConnectFault'/>
+    </wsdl:operation>
+    <wsdl:operation name='isAlive'>
+      <wsdl:input message='tns:IsSessionAlive'/>
+      <wsdl:output message='tns:IsSessionAliveResponse'/>
+      <wsdl:fault name='AbaConnectFault' message='tns:AbaConnectFault'/>
+    </wsdl:operation>
+    <wsdl:operation name='delete'>
+      <wsdl:input message='tns:DeleteRequest'/>
+      <wsdl:output message='tns:DeleteResponse'/>
+      <wsdl:fault name='AbaConnectFault' message='tns:AbaConnectFault'/>
+    </wsdl:operation>
+    <wsdl:operation name='insert'>
+      <wsdl:input message='tns:InsertRequest'/>
+      <wsdl:output message='tns:InsertResponse'/>
+      <wsdl:fault name='AbaConnectFault' message='tns:AbaConnectFault'/>
+    </wsdl:operation>
+    <wsdl:operation name='update'>
+      <wsdl:input message='tns:UpdateRequest'/>
+      <wsdl:output message='tns:UpdateResponse'/>
+      <wsdl:fault name='AbaConnectFault' message='tns:AbaConnectFault'/>
+    </wsdl:operation>
+    <wsdl:operation name='find'>
+      <wsdl:input message='tns:FindRequest'/>
+      <wsdl:output message='tns:FindResponse'/>
+      <wsdl:fault name='AbaConnectFault' message='tns:AbaConnectFault'/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name='DocumentDossierAccountsReceivableSOAPBinding' type='tns:DocumentDossierAccountsReceivablePort'>
+    <soap:binding transport='http://schemas.xmlsoap.org/soap/http' style='document'/>
+    <wsdl:operation name='ping'>
+      <soap:operation soapAction='ping' style='document'/>
+      <wsdl:input>
+        <soap:body use='literal'/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use='literal'/>
+      </wsdl:output>
+      <wsdl:fault name='AbaConnectFault'>
+        <soap:fault name='AbaConnectFault' use='literal'/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name='isFinished'>
+      <soap:operation soapAction='isFinished' style='document'/>
+      <wsdl:input>
+        <soap:body use='literal'/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use='literal'/>
+      </wsdl:output>
+      <wsdl:fault name='AbaConnectFault'>
+        <soap:fault name='AbaConnectFault' use='literal'/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name='login'>
+      <soap:operation soapAction='login' style='document'/>
+      <wsdl:input>
+        <soap:body use='literal'/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use='literal'/>
+      </wsdl:output>
+      <wsdl:fault name='AbaConnectFault'>
+        <soap:fault name='AbaConnectFault' use='literal'/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name='logout'>
+      <soap:operation soapAction='logout' style='document'/>
+      <wsdl:input>
+        <soap:body use='literal'/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use='literal'/>
+      </wsdl:output>
+      <wsdl:fault name='AbaConnectFault'>
+        <soap:fault name='AbaConnectFault' use='literal'/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name='interoperabilityTest'>
+      <soap:operation soapAction='interoperabilityTest' style='document'/>
+      <wsdl:input>
+        <soap:body use='literal'/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use='literal'/>
+      </wsdl:output>
+      <wsdl:fault name='AbaConnectFault'>
+        <soap:fault name='AbaConnectFault' use='literal'/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name='isAlive'>
+      <soap:operation soapAction='isAlive' style='document'/>
+      <wsdl:input>
+        <soap:body use='literal'/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use='literal'/>
+      </wsdl:output>
+      <wsdl:fault name='AbaConnectFault'>
+        <soap:fault name='AbaConnectFault' use='literal'/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name='delete'>
+      <soap:operation soapAction='delete' style='document'/>
+      <wsdl:input>
+        <soap:body use='literal'/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use='literal'/>
+      </wsdl:output>
+      <wsdl:fault name='AbaConnectFault'>
+        <soap:fault name='AbaConnectFault' use='literal'/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name='insert'>
+      <soap:operation soapAction='insert' style='document'/>
+      <wsdl:input>
+        <soap:body use='literal'/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use='literal'/>
+      </wsdl:output>
+      <wsdl:fault name='AbaConnectFault'>
+        <soap:fault name='AbaConnectFault' use='literal'/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name='update'>
+      <soap:operation soapAction='update' style='document'/>
+      <wsdl:input>
+        <soap:body use='literal'/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use='literal'/>
+      </wsdl:output>
+      <wsdl:fault name='AbaConnectFault'>
+        <soap:fault name='AbaConnectFault' use='literal'/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name='find'>
+      <soap:operation soapAction='find' style='document'/>
+      <wsdl:input>
+        <soap:body use='literal'/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use='literal'/>
+      </wsdl:output>
+      <wsdl:fault name='AbaConnectFault'>
+        <soap:fault name='AbaConnectFault' use='literal'/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name='DocumentDossierAccountsReceivable'>
+    <wsdl:port name='DocumentDossierAccountsReceivable' binding='tns:DocumentDossierAccountsReceivableSOAPBinding'>
+      <soap:address location='http://localhost:40000/abaconnect/services/DocumentDossierAccountsReceivable_2009_00'/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

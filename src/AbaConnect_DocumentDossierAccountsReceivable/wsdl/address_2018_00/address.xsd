@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--This XSD (W3C Schema) has been written by ABACUS AbaConnect-->
+<!--Created at: Tue Apr 14 10:53:25 CEST 2020-->
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' targetNamespace='http://www.abacus.ch/abaconnect/2018.00/adre/address' xmlns:address='http://www.abacus.ch/abaconnect/2018.00/adre/address' xmlns:addresstypes='http://www.abacus.ch/abaconnect/2018.00/adre/addressTypes' xmlns:act='http://www.abacus.ch/abaconnect/2007.10/core/AbaConnectTypes' elementFormDefault='qualified' attributeFormDefault='unqualified'>
+  <xs:import namespace='http://www.abacus.ch/abaconnect/2007.10/core/AbaConnectTypes' schemaLocation='AbaConnectTypes.xsd'/>
+  <xs:import namespace='http://www.abacus.ch/abaconnect/2018.00/adre/addressTypes' schemaLocation='addressTypes.xsd'/>
+  <xs:element name='DeleteRequest' type='address:RequestType'>
+    <xs:annotation>
+      <xs:documentation>address-Address: Address</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name='DeleteResponse' type='address:ResponseType'>
+    <xs:annotation>
+      <xs:documentation>address-Address: Address</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name='InsertRequest' type='address:RequestType'>
+    <xs:annotation>
+      <xs:documentation>address-Address: Address</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name='InsertResponse' type='address:ResponseType'>
+    <xs:annotation>
+      <xs:documentation>address-Address: Address</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name='UpdateRequest' type='address:RequestType'>
+    <xs:annotation>
+      <xs:documentation>address-Address: Address</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name='UpdateResponse' type='address:ResponseType'>
+    <xs:annotation>
+      <xs:documentation>address-Address: Address</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name='SaveRequest' type='address:RequestType'>
+    <xs:annotation>
+      <xs:documentation>address-Address: Address</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name='SaveResponse' type='address:ResponseType'>
+    <xs:annotation>
+      <xs:documentation>address-Address: Address</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name='DefaultValuesRequest' type='address:RequestType'>
+    <xs:annotation>
+      <xs:documentation>address-Address: Address</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name='DefaultValuesResponse' type='address:ResponseType'>
+    <xs:annotation>
+      <xs:documentation>address-Address: Address</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name='FindRequest' type='address:RequestType'>
+    <xs:annotation>
+      <xs:documentation>address-Address: Address</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name='FindResponse' type='address:ResponseType'>
+    <xs:annotation>
+      <xs:documentation>address-Address: Address</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name='IsFinishedRequest' type='act:RequestFinishedType'>
+    <xs:annotation>
+      <xs:documentation>address-Address: Address</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name='IsFinishedResponse' type='address:ResponseType'>
+    <xs:annotation>
+      <xs:documentation>address-Address: Address</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='RequestType'>
+    <xs:sequence>
+      <xs:element name='AbaConnectParam' type='act:RequestParameterType' minOccurs='1' maxOccurs='1'/>
+      <xs:element name='ApplicationParam' type='act:ApplicationParameterType' minOccurs='0' maxOccurs='1'/>
+      <xs:element name='FindParam' type='act:FindType' minOccurs='0' maxOccurs='1'/>
+      <xs:element name='Data' type='addresstypes:addressAbaDefaultType' minOccurs='0'/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='ResponseType'>
+    <xs:sequence>
+      <xs:element name='ResponseMessage' type='act:ACResponseType'/>
+      <xs:element name='DataContainer' type='address:DataContainerType' minOccurs='0'/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='DataContainerType'>
+    <xs:sequence>
+      <xs:element name='Data' type='addresstypes:addressAbaDefaultType' minOccurs='0' maxOccurs='unbounded'/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

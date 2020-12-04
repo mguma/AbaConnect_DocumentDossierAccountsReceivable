@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="94591f42-5903-4f26-b6a4-57a657fab3cb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="E:\DEV\Projects\Advice.MilaTest\Advice.MilaTest\wsdl\DocumentDossierAccountsReceivable_2009_00\DocumentDossierAccountsReceivable.wsdl" Protocol="file" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DocumentDossierAccountsReceivable.wsdl" MetadataType="Wsdl" ID="cc398e62-63c2-4e90-ae5e-da6e19ec6670" SourceId="1" SourceUrl="file:///E:/DEV/Projects/Advice.MilaTest/Advice.MilaTest/wsdl/DocumentDossierAccountsReceivable_2009_00/DocumentDossierAccountsReceivable.wsdl" />
+    <MetadataFile FileName="DocumentDossierAccountsReceivable.xsd" MetadataType="Schema" ID="0b8b76a9-258d-4db8-bc76-c92c7363cefd" SourceId="1" SourceUrl="file:///E:/DEV/Projects/Advice.MilaTest/Advice.MilaTest/wsdl/DocumentDossierAccountsReceivable_2009_00/DocumentDossierAccountsReceivable.xsd" />
+    <MetadataFile FileName="AbaConnectTypes.xsd" MetadataType="Schema" ID="cbbccbb6-1c64-4874-ae34-58c039a70c42" SourceId="1" SourceUrl="file:///E:/DEV/Projects/Advice.MilaTest/Advice.MilaTest/wsdl/DocumentDossierAccountsReceivable_2009_00/AbaConnectTypes.xsd" />
+    <MetadataFile FileName="DocumentDossierAccountsReceivableTypes.xsd" MetadataType="Schema" ID="a29e5a95-aed4-4c73-8475-584916b240f1" SourceId="1" SourceUrl="file:///E:/DEV/Projects/Advice.MilaTest/Advice.MilaTest/wsdl/DocumentDossierAccountsReceivable_2009_00/DocumentDossierAccountsReceivableTypes.xsd" />
+    <MetadataFile FileName="xmlmime.xsd" MetadataType="Schema" ID="7d1ce092-09a9-42e1-b3f6-fabd6410d2b6" SourceId="1" SourceUrl="file:///E:/DEV/Projects/Advice.MilaTest/Advice.MilaTest/wsdl/DocumentDossierAccountsReceivable_2009_00/xmlmime.xsd" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
